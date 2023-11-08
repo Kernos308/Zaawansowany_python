@@ -2,9 +2,6 @@ import math
 import sys
 
 class Pizza():
-    __price: float
-    __toppings: list[str]
-    __diameter: float
 
     @staticmethod
     def area(diameter: float):
@@ -28,7 +25,7 @@ class Pizza():
             print("Wrong radius")
             sys.exit(-10)
         self.__diameter = diameter
-        self.__price = 0.005 * area(self.__diameter) + len(self.__toppings) * 2
+        self.__price = 0.005 * self.area(self.__diameter) + len(self.__toppings) * 2
 
     def add_topping(self, topping: str):
         self.__toppings.append(topping)
