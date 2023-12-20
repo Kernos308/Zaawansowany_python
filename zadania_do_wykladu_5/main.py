@@ -1,21 +1,52 @@
 from functools import reduce
 
+
 # zad1
+
+class CitiesIterator:
+    def __init__(self, cities):
+        self.cities = cities
+        self.idx = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.idx < len(self.cities):
+            current_city = self.cities[self.idx]
+            self.idx += 1
+            return current_city
+        else:
+            raise StopIteration
+
+
+def print_cities(cities):
+    iterator = CitiesIterator(cities)
+    while True:
+        try:
+            city = next(iterator)
+            print(city)
+        except StopIteration:
+            break
+
+
+cities_list = ["Warszawa", "Berlin", "Kijow", "Praga", "Paryz"]
+print_cities(cities_list)
 
 # zad5
 
 
 cel = [5, 7.3, 30, 22, 21]
 
-celcius_to_fahrenheit = map(lambda x: x * (9 / 5) + 32, cel)
-print(list(celcius_to_fahrenheit))
+celsius_to_fahrenheit = map(lambda x: x * (9 / 5) + 32, cel)
+print(list(celsius_to_fahrenheit))
 
 # zad6
 
 fahrenheit = [41.0, 45.14, 86.0, 71.6, 69.8]
 
-fahrenheit_to_celcius = map(lambda x: (x - 32) * 5 / 9, fahrenheit)
-print(list(fahrenheit_to_celcius))
+fahrenheit_to_celsius = map(lambda x: (x - 32) * 5 / 9, fahrenheit)
+print(list(fahrenheit_to_celsius))
 
 # zad7
 
